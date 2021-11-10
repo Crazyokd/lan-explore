@@ -98,3 +98,7 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 .idea/
+
+
+#remove vue
+uni-app/caculator/
