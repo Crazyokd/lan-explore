@@ -69,6 +69,27 @@ public:
         }
         return max(ans,len-cur_sta);
     }
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        int len1=nums1.size(),len2=nums2.size();
+        vector<int> ans;
+        int cur1=0,cur2=0;
+        while(cur1 < len1 || cur2 < len2){
+            while(cur1< len1 && (cur2 ==len2 || nums1[cur1] <= nums2[cur2])){
+                ans.push_back(nums1[cur1]);
+                cur1++;
+            }
+            while(cur2 < len2 && (cur1 == len1 || nums1[cur1] > nums2[cur2])){
+                ans.push_back(nums2[cur2]);
+                cur2++;
+            }
+        }
+        cout<<ans.size()<<endl;
+        for(int i=0;i<ans.size();i++){
+            cout<<ans[i]<<endl;
+        }
+        if((ans.size())%2==0)return (ans[ans.size()/2-1]+ans[ans.size()/2])/2.0;
+        else return ans[ans.size()/2];
+    }
 };
 
 int main(){
@@ -81,6 +102,10 @@ int main(){
     // cout<<m[1];
     // cout<<(int)s[1];
     Solution solution=Solution();
-    cout<<solution.lengthOfLongestSubstring(s);
+    // cout<<solution.lengthOfLongestSubstring(s);
+    vector<int> a,b;
+    a.push_back(1),a.push_back(3);
+    b.push_back(2);
+    solution.findMedianSortedArrays(a,b);
     return 0;
 }

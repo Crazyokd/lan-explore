@@ -10,4 +10,7 @@ func main() {
     //初始化为false
     var bitSet [256]bool
     fmt.Println(bitSet[1],bitSet[2])
+    arr1 := []int{1,3}
+    arr2 := []int{2,7}
+    fmt.Println(leetcode.FindMedianSortedArrays(arr1,arr2))
 }
