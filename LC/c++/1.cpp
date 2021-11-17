@@ -1,12 +1,10 @@
 #include<iostream>
 #include<vector>
 #include<map>
+#include<algorithm>
 
 using namespace std;
-int main(){
-    vector<int> ans(2);//创建一个size=2的vector
-    return 0;
-}
+
 struct ListNode {
     int val;
     ListNode *next;
@@ -52,5 +50,37 @@ public:
         }
         return head->next;
     }
-
+    int lengthOfLongestSubstring(string s) {
+        //使用map
+        map<int,int> m;
+        //cur_sta表示当前子串起点
+        int ans=0,cur_sta=0,len=s.size();
+        for(int i=0;i<len;i++){
+            if(m[(int)s[i]]){
+                //如果当前字符已经出现过
+                ans=max(i-cur_sta,ans);
+                //擦除
+                for(int j=cur_sta;j<m[(int)s[i]]-1;j++){
+                    m[(int)s[j]]=0;
+                }
+                cur_sta=m[(int)s[i]];
+            }
+            m[(int)s[i]]=i+1;
+        }
+        return max(ans,len-cur_sta);
+    }
 };
+
+int main(){
+    vector<int> ans(2);//创建一个size=2的vector
+    string s="abba";
+    map<int,int> m;
+    m[1]=2;
+    // cout<<m[1];
+    m.erase(1);
+    // cout<<m[1];
+    // cout<<(int)s[1];
+    Solution solution=Solution();
+    cout<<solution.lengthOfLongestSubstring(s);
+    return 0;
+}

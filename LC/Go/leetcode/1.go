@@ -50,3 +50,26 @@ func AddTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	}
 	return head.Next
 }
+func lengthOfLongestSubstring(s string)int{
+	if len(s) == 0{
+		return 0
+	}
+	var bitSet [256]bool
+	result,left,right := 0,0,0
+	for right < len (s){
+		if bitSet[s[right]] {
+			bitSet[s[left]]=false
+			left++
+		}else{
+			bitSet[s[right]]=true
+			right++
+		}
+		if result < right-left{
+			result=right-left
+		}
+		if left + result >= len(s){
+			break
+		}
+	}
+	return result
+}
