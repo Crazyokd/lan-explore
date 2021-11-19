@@ -118,3 +118,92 @@ func max(a,b int)int{
     return b
 }
 
+func min(a,b int)int{
+	if a < b{
+		return a
+	}
+	return b
+}
+
+func longestPalindrome1(s string) string {
+    if len(s) < 2{
+		return s
+	}
+	newS := make([]rune,0)
+	newS = append(newS,'#')
+	for _,c := range s{
+		newS = append(newS,c)
+		newS = append(newS,'#')
+	}
+	dp,maxRight,center,maxLen,begin := make([]int,len(newS)),0,0,1,0
+	for i := 0;i < len(newS);i++{
+		if i < maxRight{
+			dp[i] = min(dp[2*center-i],maxRight-i)
+		}
+		left,right := i - (1+dp[i]),i + (1+dp[i])
+		for left >= 0 && right < len(newS) && newS[left] == newS[right]{
+			dp[i]++
+			left--
+			right++
+		}
+		//update the maxRight
+		if dp[i] + i > maxRight{
+			maxRight = dp[i] + i
+			center = i
+		}
+		//update the maxLen
+		if dp[i] > maxLen{
+			maxLen=dp[i]
+			begin = (i - maxLen)/2
+		}
+	}
+	return s[begin : begin + maxLen]
+}
+
+//滑动窗口解法
+func longestPalindrome2(s string) string {
+	left,right,pl,pr := 0,0,0,0
+	for left < len(s){
+		for right + 1 < len(s) && s[left] == s[right+1]{
+			right++
+		}
+		for left > 0 && right < len(s) - 1 && s[left-1] == s[right+1]{
+			left--;
+			right++;
+		}
+		if right -left > pr - pl{
+			pr = right
+			pl = left
+		}
+        left = (left + right)/2 + 1
+        right = left
+	}
+	return s[pl : pr + 1]
+}
+
+//中心扩散法
+func longestPalindrome(s string) string {
+	if len(s) < 2{
+		return s
+	}
+	res := ""
+	for i := 0;i < len(s) - 1;i++{
+		res = maxPalindrome(s,i,i,res)
+        if s[i] == s[i+1]{
+			res = maxPalindrome(s,i,i+1,res)
+		}
+	}
+	return res
+}
+func maxPalindrome(s string,i,j int,res string)string{
+	sub := ""
+	for i >= 0 && j < len(s) && s[i] == s[j]{
+		i--
+		j++
+	}
+    sub = s[i+1 : j]
+    if len(sub) > len(res){
+		return sub
+	}
+	return res
+}

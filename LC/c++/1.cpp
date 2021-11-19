@@ -2,6 +2,7 @@
 #include<vector>
 #include<map>
 #include<algorithm>
+#include<cstring>
 
 using namespace std;
 
@@ -90,11 +91,68 @@ public:
         if((ans.size())%2==0)return (ans[ans.size()/2-1]+ans[ans.size()/2])/2.0;
         else return ans[ans.size()/2];
     }
+    //dp
+    string longestPalindrome1(string s) {
+        const int N=1005;
+        bool a[N][N]={0};
+        int sta=0,ans=1;
+        for(int i=0;i<s.size();i++){
+            for(int j=0;j<s.size()-i;j++){
+                if(s[j]==s[j+i] && (j+1 >= j+i-1 || a[j+1][j+i-1])){
+                    a[j][j+i]=true;
+                    if(i+1>ans){
+                        ans=i+1;
+                        sta=j;
+                    }
+                }
+            }
+        }
+        return s.substr(sta,ans);
+    }
+
+//马拉车算法
+    string longestPalindrome(string s){
+        if(s.size() < 2)return s;
+        const int N=2005;
+        int a[N]={0};
+        char cc[N];
+        int center=0,maxRight=0,maxLen=1,sta=0;
+        //预处理
+        cc[0]='#';
+        for(int i=0;i<s.size();i++){
+            cc[i*2+1]=s[i];
+            cc[2*(i+1)]='#';
+        }
+        for(int i=0;i < s.size()*2+1;i++){
+            if(i < maxRight){
+                //核心算法
+                a[i] = min(a[2*center-i],maxRight-i);
+            }
+            int left=i-(a[i]+1),right=i+(a[i]+1);
+            while(left >= 0 && right < s.size()*2+1 && cc[left] == cc[right]){
+                left--;
+                right++;
+                a[i]++;
+            }
+            //更新maxRight
+            if(a[i] + i > maxRight){
+                maxRight =a[i] + i;
+                center = i;
+            }
+            //更新答案
+            if(a[i] > maxLen){
+                maxLen = a[i];
+                sta = (i - a[i])/2;
+            }
+        }
+        return s.substr(sta,maxLen);
+    }
+
 };
 
 int main(){
     vector<int> ans(2);//创建一个size=2的vector
-    string s="abba";
+    string s="aacabdkacaa";
     map<int,int> m;
     m[1]=2;
     // cout<<m[1];
@@ -106,6 +164,10 @@ int main(){
     vector<int> a,b;
     a.push_back(1),a.push_back(3);
     b.push_back(2);
-    solution.findMedianSortedArrays(a,b);
+    // solution.findMedianSortedArrays(a,b);
+    // cout<<solution.longestPalindrome1(s);
+    // s.append("#");
+    // cout<<solution.longestPalindrome(s)<<endl;
+
     return 0;
 }
