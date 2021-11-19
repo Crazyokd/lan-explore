@@ -21,11 +21,20 @@ Java的部分课程作业，后续可能会有其他一些Java写的小东西。
 ### LC
 
 LeetCode刷题题解
-
+- 代码规范
+  * 题解分别位于[LC/c++/1.cpp](./LC/c++/1.cpp)和[LC/Go/leetcode/1.go](./LC/Go/leetcode/1.go)文件内。
+  * 题解按题号排序【~~目前还没有跳题~~】
+  * 题解的函数名与[**leetcode**](https://leetcode.com/problemset/all/)上给定的函数名一致，
+    
+    > 若有多解，函数名后会加序号。
+  * 题解中的高优解基本来自大佬[halfrost](https://github.com/halfrost/)，详见参考仓库。
+    
+    > 后续如有参考其他大佬会在参考链接尽量一一列出。
+  
 - 开发环境——vsCode
-
 - 使用语言——Go && C++
 - 参考仓库——[halfrost/LeetCode-Go](https://github.com/halfrost/LeetCode-Go)
+- 参考链接
 
 > [一本通](http://ybt.ssoier.cn:8088/)上的**（基础二）基础算法**和**（基础三）数据结构**大部分题解可参考[sxrekord](https://www.cnblogs.com/sxrekord/)，由于该网站太卡了，已停止更新。
 >
@@ -43,3 +52,8 @@ LeetCode刷题题解
 抱着【_完成作业就好_】的观念写的作业就没放上来了...
 
 - 开发环境——[HbuilderX](https://www.dcloud.io/hbuilderx.html)
+
+## Waiting to learn
+
+- [ ] JavaScript
+- [ ] Shell
