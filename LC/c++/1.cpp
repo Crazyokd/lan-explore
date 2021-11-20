@@ -148,6 +148,83 @@ public:
         return s.substr(sta,maxLen);
     }
 
+//题意
+// 将给定的字符串按如下的Z字型排列，并从左至右输出
+// |  /  /
+// | /| /|
+// |/ |/
+// |  |
+    string convert(string s, int numRows) {
+        vector<vector<char>> ans(numRows);
+        int down=0,up=numRows-2;
+        for(int i=0;i < s.size();i++){
+            if(down < numRows){
+                ans[down].push_back(s[i]);
+                down++;
+            }else if(up > 0){
+                ans[up].push_back(s[i]);
+                up--;
+            }else{
+                down=0;
+                up=numRows-2;
+                i--;
+            }
+        }
+        string solution="";
+        for(int i=0;i<numRows;i++){
+            for(int j=0;j < ans[i].size();j++){
+                solution.push_back(ans[i][j]);
+            }
+        }
+        return solution;
+    }
+
+//注意最大值和最小值
+    int reverse(int x) {
+        long long ans=0;
+        int maxx=-1*((1<<31)+1),minn=(1<<31);
+        while(x != 0){
+            ans=ans*10+x%10;
+            x/=10;
+        }
+        if(ans > maxx || ans < minn)return 0;
+        return ans;
+    }
+
+    int myAtoi(string s) {
+        int maxx=-1*((1<<31)+1),minn=1<<31;
+        bool allowSign=true,allowSpace=true;
+        int sign=1;
+        vector<int> ans;
+        for(int i=0;i<s.size();i++){
+            if(s[i]==' '){
+                if(allowSpace)continue;
+                else break;
+            }else if((s[i] == '+' || s[i] == '-')){
+                if(!allowSign)break;
+                if(s[i] == '-')sign = -1;
+                allowSign=false;
+                allowSpace=false;
+            }else if(s[i] <= '9' && s[i] >= '0'){
+                allowSign=false;
+                allowSpace=false;
+                ans.push_back((int)(s[i]-'0'));
+            }else{
+                break;
+            }
+        }
+        long long res=0;
+        bool leadingZero=true;
+        int substitute = sign > 0 ? maxx : minn;
+        for(int i=0;i<ans.size();i++){
+            if(!ans[i] && leadingZero)continue;
+            if(ans.size() - i > 10)return substitute;
+            leadingZero=false;
+            res=res*10+ans[i];
+        }
+        if(res > maxx || res < minn)return substitute;    
+        return sign*res;
+    }
 };
 
 int main(){
@@ -168,6 +245,9 @@ int main(){
     // cout<<solution.longestPalindrome1(s);
     // s.append("#");
     // cout<<solution.longestPalindrome(s)<<endl;
-
+    string ss="PAYPALISHIRING";
+    // cout<<solution.convert(ss,3);
+    // cout<<solution.reverse(-123);
+    cout<<solution.myAtoi("-0042");
     return 0;
 }

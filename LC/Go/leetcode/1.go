@@ -207,3 +207,91 @@ func maxPalindrome(s string,i,j int,res string)string{
 	}
 	return res
 }
+
+func convert(s string, numRows int) string {
+    matrix,down,up := make([][]byte,numRows,numRows),0,numRows-2
+	for i := 0;i != len(s);i++{
+		if down != numRows{
+			matrix[down] = append(matrix[down],byte(s[i]))
+			down++
+		}else if up > 0{
+			matrix[up] = append(matrix[up],byte(s[i]))
+			up--
+		}else{
+			down = 0
+			up =numRows-2
+			i--
+		}
+	}
+	res := make([]byte,0,len(s))
+	for _,row := range matrix{
+		for _,item := range row{
+			res =  append(res,item)
+		}
+	}
+    return string(res)
+}
+
+func reverse(x int) int {
+	res := 0
+	for x != 0{
+		res = res*10 + x%10
+		x /= 10
+	}
+	//1<<31等于2^31(针对于Go)
+    if res > 1<<31-1 || res < -(1<<31){
+		return 0
+	}
+	return res
+}
+
+func MyAtoi(s string) int {
+    allowSpace,allowSign,maxInt,sign,digits := true,true,int64(1<<31),1,[]int{}
+	for _,c := range s{
+		if c == ' ' && allowSpace{
+			continue
+		}
+		if allowSign{
+			allowSign,allowSpace = false,false
+			if c == '-'{
+				sign = -1
+				continue
+			}
+			if c == '+'{
+				continue
+			}
+		}
+		if c < '0' || c > '9'{
+			break
+		}
+		digits = append(digits,int(c-48))
+	}
+	var num,place int64
+	place,num = 1,0
+	lastLeadingZeroIndex := -1
+	for i,d := range digits{
+		if d == 0 {
+			lastLeadingZeroIndex = i
+		}else{
+			break
+		}
+	}
+	if lastLeadingZeroIndex > -1{
+		digits = digits[lastLeadingZeroIndex+1 : ]
+	}
+	var rtnMax int64
+    if sign > 0{
+        rtnMax = maxInt - 1
+    }else{
+        rtnMax = maxInt
+    }
+	digitsCount := len(digits)
+	for i := digitsCount -1;i >= 0;i--{
+		num += int64(digits[i])*place
+		place *= 10
+		if digitsCount -i > 10 || num > rtnMax{
+			return int(int64(sign) * rtnMax)
+		}
+	}
+	return int(num*int64(sign))
+}

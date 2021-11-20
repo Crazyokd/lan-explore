@@ -13,4 +13,5 @@ func main() {
     arr1 := []int{1,3}
     arr2 := []int{2,7}
     fmt.Println(leetcode.FindMedianSortedArrays(arr1,arr2))
+    fmt.Println(leetcode.MyAtoi("    0000000000000   "))
 }
