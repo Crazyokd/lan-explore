@@ -225,6 +225,21 @@ public:
         if(res > maxx || res < minn)return substitute;    
         return sign*res;
     }
+
+    bool isPalindrome(int x) {
+        if(x < 0)return false;
+        vector<int> res;
+        while(x){
+            res.push_back(x%10);
+            x/=10;
+        } 
+        int len=res.size();
+        for(int i=0;i<len/2;i++){
+            if(res[i] != res[len-i-1])
+                return false;
+        }    
+        return true;
+    }
 };
 
 int main(){
@@ -248,6 +263,7 @@ int main(){
     string ss="PAYPALISHIRING";
     // cout<<solution.convert(ss,3);
     // cout<<solution.reverse(-123);
-    cout<<solution.myAtoi("-0042");
+    // cout<<solution.myAtoi("-0042");
+    cout<<solution.isPalindrome(1001);
     return 0;
 }
