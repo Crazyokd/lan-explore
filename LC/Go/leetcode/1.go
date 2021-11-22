@@ -8,6 +8,9 @@ package leetcode
 //make(map[type1]type2)对应的map有默认值
 //map[type1]type2
 //m[type1]=type2
+import(
+	"strconv"
+)
 func twoSum(nums []int, target int) []int {
 	m := make(map[int]int)
 	for i := 0;i < len(nums);i++{
@@ -314,6 +317,26 @@ func isPalindrome(x int)bool{
 	sz := len(arr)
 	for i,j := 0,sz-1;i < j;i,j = i+1,j-1{
 		if arr[i] != arr[j]{
+			return false
+		}
+	}
+	return true
+}
+
+func isPalindrome1(x int)bool{
+	if x < 0{
+		return false
+	}
+	if x < 10{
+		return true
+	}
+	if x%10 == 0{
+		return false
+	}
+	s := strconv.Itoa(x)
+	length := len(s)
+	for i := 0;i < length/2;i++{
+		if s[i] != s[length-i-1]{
 			return false
 		}
 	}
