@@ -3,6 +3,7 @@
 #include<map>
 #include<algorithm>
 #include<cstring>
+#include<regex>
 
 using namespace std;
 
@@ -240,6 +241,58 @@ public:
         }    
         return true;
     }
+    //通过分支判断无法实现功能
+    // bool isMatch(string s, string p) {
+    //     int ps=0,pp=0;
+    //     //对p中*前后的字符进行预处理
+    //     for(int i=2;i<p.size();){
+    //         if(p[i-1] == '*' && (p[i] == '*' || p[i] == p[i-2]))p.erase(p.begin()+i);
+    //         else i++;
+    //     }
+    //     int lens=s.size(),lenp=p.size();
+    //     while(ps < lens && pp < lenp){
+    //         //直接出现*视为无效
+    //         if(p[pp] == '*'){
+    //             pp++;
+    //             continue;
+    //         }
+    //         if(pp+1 < lenp && p[pp+1] == '*'){
+    //             while(ps < lens && (s[ps] == p[pp] || p[pp] == '.'))ps++;
+    //             pp+=2;
+    //         }else{
+    //             if(s[ps] != p[pp] && p[pp] != '.')return false;
+    //             ps++;
+    //             pp++;
+    //         }
+    //     }
+    //     if(ps < lens || pp < lenp)return false;
+    //     return true;
+    // }
+    bool isMatch1(string s, string p) {
+        return regex_match(s,regex(p));
+    }
+    // dp[a][b]表示将s[a]与p[b]相匹配，若返回false，表示不能将s[a]与p[b]相匹配
+    bool solver(string &s,string &p,int a ,int b,vector<vector<int>> &dp)  {   
+        // 递归终止条件
+        //若dp[a][b]!=-1,表示已经计算过,return
+        if(dp[a][b]!=-1) return dp[a][b];
+        //匹配完毕,return true
+        if(a>=s.length() && b>=p.length())  return dp[a][b] = true;
+        //p已经使用完但s还有未匹配的,return false
+        if(b>=p.length())  return dp[a][b] = false;
+        
+        //s[a]能与p[b]相匹配
+        bool match = ( a <s.length() && (s[a]==p[b] || p[b]=='.'));
+        //关键算法，若出现*通配符，可选择不匹配或选择匹配
+        if( b<p.length()-1 && p[b+1]=='*') return dp[a][b] = solver(s,p,a,b+2,dp) || ( match && solver(s,p,a+1,b,dp));
+        //普通匹配
+        if(match) return dp[a][b] = solver(s,p,a+1,b+1,dp);
+        return dp[a][b] = false;
+    }
+    bool isMatch(string s, string p) {
+        vector<vector<int>> dp( s.length()+1, vector<int>(p.length()+1,-1) );
+        return solver(s,p,0,0,dp);
+    }
 };
 
 int main(){
@@ -264,6 +317,7 @@ int main(){
     // cout<<solution.convert(ss,3);
     // cout<<solution.reverse(-123);
     // cout<<solution.myAtoi("-0042");
-    cout<<solution.isPalindrome(1001);
+    // cout<<solution.isPalindrome(1001);
+    cout<<solution.isMatch("aa","a*");
     return 0;
 }
