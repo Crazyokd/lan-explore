@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+    version="2.4">
+
+    <display-name>Hello, World Application</display-name>
+    <description>
+	This is a simple web application with a source code organization
+	based on the recommendations of the Application Developer's Guide.
+    </description>
+
+    <welcome-file-list>
+	<welcome-file>register.jsp</welcome-file>
+    </welcome-file-list>
+
+    <servlet>
+        <init-param>
+            <description></description>
+            <param-name>helloween</param-name>
+            <param-value>password</param-value>
+        </init-param>
+        <init-param>
+            <description></description>
+            <param-name>admin</param-name>
+            <param-value>admin123456</param-value>
+        </init-param>
+        <init-param>
+            <description></description>
+            <param-name>babyface</param-name>
+            <param-value>babyface</param-value>
+        </init-param>
+        <servlet-name>HandleServlet</servlet-name>
+        <servlet-class>ex8.HandleServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>HandleServlet</servlet-name>
+        <!-- "/"表示http://ip:port/工程路径 -->
+        <url-pattern>/handle-servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CounterServlet</servlet-name>
+        <servlet-class>ex8.CounterServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CounterServlet</servlet-name>
+        <!-- "/"表示http://ip:port/工程路径 -->
+        <url-pattern>/counter</url-pattern>
+    </servlet-mapping>
+
+</web-app>
