@@ -10,6 +10,8 @@ public class HelloServlet extends HttpServlet {
 
     public void init() {
         message = "Hello World!";
+        for(int i=0;i<10;i++)
+            System.out.println("init:Hello World!");
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -26,11 +28,11 @@ public class HelloServlet extends HttpServlet {
     public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException {
         String c=request.getParameter("color");
         BeerExpert t=new BeerExpert();
-        List result = t.getBrands(c);
+        List<String> result = t.getBrands(c);
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("Beer Selection Advice<br>");
-        Iterator it= result.iterator();
+        Iterator<String> it= result.iterator();
         while(it.hasNext()){
             out.print("<br>try:"+it.next());
         }
