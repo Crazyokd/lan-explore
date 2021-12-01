@@ -1,4 +1,5 @@
 #include<vector>
+#include<iostream>
 #include<algorithm>
 #include<string>
 using namespace std;
@@ -30,10 +31,35 @@ public:
         } 
         return res;
     }
+    int romanToInt(string s) {
+        int commonValues[] = {1000,500,100,50,10,5,1};
+        int specialValues[] = {900,400,90,40,9,4};
+        string commonSymbols[] = {"M","D","C","L","X","V","I"};
+        string specialSymbols[] = {"CM","CD","XC","XL","IX","IV"};
+        int ans=0;
+        for(int i=0;i < s.size();i++){
+            int j;
+            for(j=0;j < 6;j++){
+                if(s.substr(i,2) == specialSymbols[j]){
+                    ans+=specialValues[j];
+                    i+=1;
+                    break;
+                }    
+            }
+            if(j < 6)continue;
+            for(j=0;j < 7;j++){
+                if(i<s.size() && s.substr(i,1) == commonSymbols[j]){
+                    ans+=commonValues[j];
+                    break;
+                }
+            }
+        }
+        return ans;
+    }
 };
 
 int main(){
     Solution solution=Solution();
-
+    cout<<solution.romanToInt("MCMXCIV");
     return 0;
 }
