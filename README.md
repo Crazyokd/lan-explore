@@ -64,4 +64,4 @@ LeetCode刷题题解
 
 - [ ] JavaScript
 - [ ] Shell
-- [ ] C#
+- [x] C#
