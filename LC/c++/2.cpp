@@ -56,10 +56,29 @@ public:
         }
         return ans;
     }
+    string longestCommonPrefix(vector<string>& strs) {
+        if(strs.size() == 1)return strs.front();
+        string res;
+        int cnt=0;
+        while(true){
+            for(int i=1;i<strs.size();i++){
+                if(strs[i].size() == cnt || strs[i][cnt] != strs[i-1][cnt]){
+                    res=strs[i].substr(0,cnt);
+                    return res;
+                }
+            }
+            cnt++;
+        }
+    }
 };
 
 int main(){
     Solution solution=Solution();
-    cout<<solution.romanToInt("MCMXCIV");
+    // cout<<solution.romanToInt("MCMXCIV");
+    vector<string> strs;
+    strs.push_back("flower");
+    strs.push_back("flow");
+    strs.push_back("flight");
+    cout << solution.longestCommonPrefix(strs);
     return 0;
 }
