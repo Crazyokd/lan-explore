@@ -41,6 +41,7 @@ LeetCode刷题题解
 
 - 参考链接
   * [https://leetcode.com/problems/regular-expression-matching/discuss/1222028/Shortest-C%2B%2B-0ms-Solution-with-explanation](https://leetcode.com/problems/regular-expression-matching/discuss/1222028/Shortest-C%2B%2B-0ms-Solution-with-explanation)
+  * [https://leetcode.com/problems/3sum/discuss/369728/Short-C%2B%2B-solution-beats-98-using-sorting-and-2-pointer-method](https://leetcode.com/problems/3sum/discuss/369728/Short-C%2B%2B-solution-beats-98-using-sorting-and-2-pointer-method)
 - 参考链接
 
 > [一本通](http://ybt.ssoier.cn:8088/)上的**（基础二）基础算法**和**（基础三）数据结构**大部分题解可参考[sxrekord](https://www.cnblogs.com/sxrekord/)，由于该网站太卡了，已停止更新。
