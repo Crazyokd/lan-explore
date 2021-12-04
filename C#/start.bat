@@ -1,3 +1,4 @@
+@REM https://docs.microsoft.com/en-us/dotnet/core/tutorials/with-visual-studio-code?pivots=dotnet-6-0
 @REM dotnet new console [--framework net6.0]
 
 @REM 默认以Debug的方式运行
@@ -38,7 +39,6 @@ dotnet run
 
 @REM run the app 
 @REM dotnet run --project ShowCase\ShowCase.csproj 
-
 
 @REM install the package
 @REM dotnet add package package_name
