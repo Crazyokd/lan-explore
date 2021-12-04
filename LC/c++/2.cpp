@@ -105,7 +105,38 @@ public:
         }
         return result;
     }
+    int threeSumClosest(vector<int>& nums, int target) {
+        int def = 0x7fffffff;
 
+        std::size_t n_size = nums.size();
+        std::sort(nums.begin(), nums.end());
+        int result = nums[0] + nums[1] + nums[2];
+        for (int i = 0; i < n_size; ++i) {
+            // all numbers from now on will be greater than 0, no point in continuing
+            if (nums[i] > target / 3) break;
+
+            // we have seen this number & combo before; skip
+            if (i > 0 && nums[i] == nums[i-1]) continue;
+
+            int left = i+1, right = n_size - 1;
+            while (left < right) {
+                int sum = nums[i] + nums[left] + nums[right];
+                int tmp = sum - target;
+                //the closest answer
+                if(tmp == 0)return target;
+                if(abs(tmp) < def){
+                    result = sum;
+                    def = abs(tmp);
+                }
+                if (tmp < 0) {
+                    ++left;
+                } else{
+                    --right;
+                }
+            }
+        }
+        return result;
+    }
 };
 
 int main(){
