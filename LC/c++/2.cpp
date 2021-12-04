@@ -137,6 +137,24 @@ public:
         }
         return result;
     }
+    void helper(string digits,int depth,string tmpRes,vector<string>& res){
+        if(depth == digits.size()){
+            res.push_back(tmpRes);
+            return;
+        }
+        string letters[] = {"abc","def","ghi","jkl","mno","pqrs","tuv","wxyz"};
+        string digit = letters[(int)(digits[depth]-'2')]; 
+        int len = digit.size();
+        for(int i=0;i < len;i++){  
+            helper(digits,depth+1,tmpRes+digit[i],res);
+        }
+    }
+    vector<string> letterCombinations(string digits) {
+        vector<string> res;
+        if(digits.empty())return res;
+        helper(digits,0,"",res);
+        return res;
+    }
 };
 
 int main(){
@@ -146,6 +164,7 @@ int main(){
     strs.push_back("flower");
     strs.push_back("flow");
     strs.push_back("flight");
-    cout << solution.longestCommonPrefix(strs);
+    // cout << solution.longestCommonPrefix(strs);
+    solution.letterCombinations("23");
     return 0;
 }
