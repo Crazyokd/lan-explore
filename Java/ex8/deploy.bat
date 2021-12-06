@@ -4,6 +4,6 @@ dir /s /B *.java > .\sources.txt
 set CLSPT="D:\ProgramFiles2\Tomcat\apache-tomcat-8.0.50\lib\servlet-api.jar"
 set TARGET_DIR=".\WEB-INF\classes"
 
-javac -d %TARGET_DIR% -classpath %CLSPT% -nowarn -g:none @sources.txt
+javac -encoding UTF-8 -d %TARGET_DIR% -classpath %CLSPT% -nowarn -g:none @sources.txt
 
 del .\sources.txt
