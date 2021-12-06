@@ -1,4 +1,4 @@
-package ex8;
+package pkg.ex8;
 
 public class Counter{
 	  private int count; 

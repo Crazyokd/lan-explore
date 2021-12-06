@@ -1,18 +1,12 @@
-package ex8;
+package pkg.ex8;
 
 import java.io.*;
-import java.net.PasswordAuthentication;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.http.*;
 
 public class HandleServlet extends HttpServlet {
-    private String message;
 
-    public void init() {
-        message = "Hello World!";
-        System.out.println("enter HandleServlet init method");
-    }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // request.getParameter("")

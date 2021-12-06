@@ -31,7 +31,7 @@
             <param-value>babyface</param-value>
         </init-param>
         <servlet-name>HandleServlet</servlet-name>
-        <servlet-class>ex8.HandleServlet</servlet-class>
+        <servlet-class>pkg.ex8.HandleServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -42,7 +42,7 @@
 
     <servlet>
         <servlet-name>CounterServlet</servlet-name>
-        <servlet-class>ex8.CounterServlet</servlet-class>
+        <servlet-class>pkg.ex8.CounterServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
@@ -51,4 +51,51 @@
         <url-pattern>/counter</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ImageServlet</servlet-name>
+        <servlet-class>pkg.ex8.ImageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ImageServlet</servlet-name>
+        <!-- "/"表示http://ip:port/工程路径 -->
+        <url-pattern>/image</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <init-param>
+            <param-name>好运来</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+        <servlet-name>RegServlet</servlet-name>
+        <servlet-class>pkg.ex9.RegServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>RegServlet</servlet-name>
+        <!-- "/"表示http://ip:port/工程路径 -->
+        <url-pattern>/reg-servlet</url-pattern>
+    </servlet-mapping>
+
+        <servlet>
+        <servlet-name>LoginSuccessServlet</servlet-name>
+        <servlet-class>pkg.ex9.LoginSuccessServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginSuccessServlet</servlet-name>
+        <!-- "/"表示http://ip:port/工程路径 -->
+        <url-pattern>/ls-servlet</url-pattern>
+    </servlet-mapping>
+
+        <servlet>
+        <servlet-name>LoginFailServlet</servlet-name>
+        <servlet-class>pkg.ex9.LoginFailServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginFailServlet</servlet-name>
+        <!-- "/"表示http://ip:port/工程路径 -->
+        <url-pattern>/lf-servlet</url-pattern>
+    </servlet-mapping>
 </web-app>
