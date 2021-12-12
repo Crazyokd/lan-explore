@@ -98,4 +98,32 @@
         <!-- "/"表示http://ip:port/工程路径 -->
         <url-pattern>/lf-servlet</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>InputNumberServlet</servlet-name>
+        <servlet-class>pkg.ex10.InputNumberServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>InputNumberServlet</servlet-name>
+        <url-pattern>/guess</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GuessNumberServlet</servlet-name>
+        <servlet-class>pkg.ex10.GuessNumberServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GuessNumberServlet</servlet-name>
+        <url-pattern>/guess-servlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>GuessRightServlet</servlet-name>
+        <servlet-class>pkg.ex10.GuessRightServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GuessRightServlet</servlet-name>
+        <url-pattern>/guess-right</url-pattern>
+    </servlet-mapping>
+
 </web-app>
