@@ -1,10 +1,16 @@
 import dearpygui.dearpygui as dpg
-from view.bg_main_view import show_bgmain_view
+
+from dao.productDao import delete_pro
 
 
 def show_off_shelf_goods_view():
     def submit():
         print("off shelf goods")
+        try:
+            id = int(dpg.get_value("id"))
+            delete_pro(id)
+        except:
+            print("数值转换异常")
 
     def return_pre_view():
         print("返回上一层")
@@ -17,7 +23,7 @@ def show_off_shelf_goods_view():
             dpg.add_text("商品下架")
             with dpg.group(label="goods_name",tag="goods_name"):
                 dpg.add_text("商品ID：")
-                dpg.add_input_text()
+                dpg.add_input_text(tag="id")
         
             dpg.add_button(label="下架商品",callback=submit)
             dpg.add_button(label="返回上一层",callback=return_pre_view)
