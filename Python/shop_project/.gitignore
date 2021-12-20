@@ -1,7 +1,0 @@
-# ignore font file
-fonts/
-*.otf
-*.ttf
-
-# ignore test dir
-test/
