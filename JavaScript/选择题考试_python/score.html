@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>score</title>
+
+<script src="js/ceishi.js"></script>
+
+
+
+<script>
+var score = 0;
+window.onload = function(){
+	var re = sessionStorage.getItem("key");
+	
+	var result = JSON.parse(re);
+
+	for (var i=0; i < result.length ;  i++) {
+		
+		for(var j=0;j<data.length;j++){
+			
+			if (result[i].key==data[j].name && result[i].value == data[j].ans) {
+				score++;
+			}
+		}
+	}
+
+	var readinfo = sessionStorage.getItem("keyinfo");
+	
+	var info = JSON.parse(readinfo);
+
+	
+	var scoreinfo = info.class +"&nbsp;" +info.num+"&nbsp;" + info.name+'&nbsp;<br> 你完成了&nbsp;&nbsp;'+result.length+'&nbsp;&nbsp;题<br>成绩为&nbsp;&nbsp;'+ score + '&nbsp;&nbsp;分' ;
+
+	document.getElementById("score").innerHTML = scoreinfo;
+	
+}
+</script>
+</head>
+<body>
+<div id="score"> </div>	
+</body>
+</html>
+<script>
+document.onkeydown = function(){
+alert("F12被禁用");
+return false;
+}
+
+document.oncontextmenu = function () {
+			alert("右键功能被禁用");
+			return false; 
+		};
+</script>
+
+
