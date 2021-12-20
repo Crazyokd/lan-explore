@@ -61,8 +61,12 @@ LeetCode刷题题解
 
 - 开发环境——[HbuilderX](https://www.dcloud.io/hbuilderx.html)
 
+### JavaScript
+
+用js写的一些widget？（包括创意、仿写、以及搬运）
+
 ## Waiting to learn
 
-- [ ] JavaScript
+- [x] JavaScript
 - [ ] Shell
 - [x] C#
