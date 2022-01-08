@@ -68,6 +68,7 @@ LeetCode刷题题解
 
 - 参考链接
   * [www.tutorialspoint.com/batch_script/index.htm](https://www.tutorialspoint.com/batch_script/index.htm)
+  * [www.hxstrive.com/subject/windows_bat.htm](https://www.hxstrive.com/subject/windows_bat.htm?id=111)
 
 ## Waiting to learn
 
