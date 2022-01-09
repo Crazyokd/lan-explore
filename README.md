@@ -65,10 +65,7 @@ LeetCode刷题题解
 用js写的一些widget？（包括创意、仿写、以及搬运）
 
 ### Batch
-
-- 参考链接
-  * [www.tutorialspoint.com/batch_script/index.htm](https://www.tutorialspoint.com/batch_script/index.htm)
-  * [www.hxstrive.com/subject/windows_bat.htm](https://www.hxstrive.com/subject/windows_bat.htm?id=111)
+有关Batch的学习已单独迁移至[Crazyokd/learn-batch](https://github.com/Crazyokd/learn-batch)仓库。
 
 ## Waiting to learn
 
