@@ -39,4 +39,38 @@
         <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
     </properties>
 	
+	<!-- <build>
+		<finalName>AtguiguWeb</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.2.3</version>
+				<configuration>
+					<container>
+						<containerId>tomcat8x</containerId>
+						<home>D:\ProgramFiles2\Tomcat\apache-tomcat-8.0.50</home>
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>D:\ProgramFiles2\Tomcat\apache-tomcat-8.0.50</home> -->
+						<!-- 如果Tomcat端口为默认值8080则不必设置该属性 -->
+						<!-- <properties>
+							<cargo.servlet.port>8080</cargo.servlet.port>
+						</properties>
+					</configuration>
+				</configuration>
+				<executions>  
+					<execution>  
+						<id>cargo-run</id>  
+						<phase>install</phase>  
+						<goals>  
+							<goal>run</goal>  
+						</goals>  
+					</execution>  
+				</executions>
+			</plugin>
+		</plugins>
+	</build> -->
+
 </project>
