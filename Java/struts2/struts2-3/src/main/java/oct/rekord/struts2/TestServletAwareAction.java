@@ -1,6 +1,7 @@
 package oct.rekord.struts2;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.ServletContext;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.util.ServletContextAware;
 
