@@ -438,3 +438,33 @@ throws BeansException {
 <!--配置后置处理器-->
 <bean id="myBeanPost" class="com.atguigu.spring5.bean.MyBeanPost"></bean>
 ```
+## xml自动装配
+1. 什么是自动装配
+- （1）根据指定装配规则（属性名称或者属性类型），Spring 自动将匹配的属性值进行注入
+2. 演示自动装配过程
+- （1）根据属性名称自动注入
+```xml
+<!--实现自动装配
+ bean 标签属性 autowire，配置自动装配
+ autowire 属性常用两个值：
+ byName 根据属性名称注入 ，注入值 bean 的 id 值和类属性名称一样
+ byType 根据属性类型注入
+-->
+<bean id="emp" class="com.atguigu.spring5.autowire.Emp" autowire="byName">
+ <!--<property name="dept" ref="dept"></property>-->
+</bean>
+<bean id="dept" class="com.atguigu.spring5.autowire.Dept"></bean>
+```
+- （2）根据属性类型自动注入
+```xml
+<!--实现自动装配
+ bean 标签属性 autowire，配置自动装配
+ autowire 属性常用两个值：
+ byName 根据属性名称注入 ，注入值 bean 的 id 值和类属性名称一样
+ byType 根据属性类型注入
+-->
+<bean id="emp" class="com.atguigu.spring5.autowire.Emp" autowire="byType">
+ <!--<property name="dept" ref="dept"></property>-->
+</bean>
+<bean id="dept" class="com.atguigu.spring5.autowire.Dept"></bean>
+```
