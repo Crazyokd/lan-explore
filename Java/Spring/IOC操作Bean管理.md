@@ -368,6 +368,7 @@ getBean 方法时候创建多实例对象
 - （4）bean 可以使用了（对象获取到了）
 - （5）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
 3. 演示 bean 生命周期
+```java
 public class Orders {
  //无参数构造
  public Orders() {
@@ -387,9 +388,13 @@ public class Orders {
  System.out.println("第五步 执行销毁的方法");
  }
 }
+```
+```xml
 <bean id="orders" class="com.atguigu.spring5.bean.Orders" initmethod="initMethod" destroy-method="destroyMethod">
  <property name="oname" value="手机"></property>
 </bean>
+```
+```java
  @Test
  public void testBean3() {
 // ApplicationContext context =
@@ -402,16 +407,18 @@ public class Orders {
  //手动让 bean 实例销毁
  context.close();
  }
-4、bean 的后置处理器，bean 生命周期有七步
-（1）通过构造器创建 bean 实例（无参数构造）
-（2）为 bean 的属性设置值和对其他 bean 引用（调用 set 方法）
-（3）把 bean 实例传递 bean 后置处理器的方法 postProcessBeforeInitialization
-（4）调用 bean 的初始化的方法（需要进行配置初始化的方法）
-（5）把 bean 实例传递 bean 后置处理器的方法 postProcessAfterInitialization
-（6）bean 可以使用了（对象获取到了）
-（7）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
-5、演示添加后置处理器效果
-（1）创建类，实现接口 BeanPostProcessor，创建后置处理器
+ ```
+4. bean 的后置处理器，bean 生命周期有七步
+- （1）通过构造器创建 bean 实例（无参数构造）
+- （2）为 bean 的属性设置值和对其他 bean 引用（调用 set 方法）
+- （3）把 bean 实例传递 bean 后置处理器的方法 postProcessBeforeInitialization
+- （4）调用 bean 的初始化的方法（需要进行配置初始化的方法）
+- （5）把 bean 实例传递 bean 后置处理器的方法 postProcessAfterInitialization
+- （6）bean 可以使用了（对象获取到了）
+- （7）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
+5. 演示添加后置处理器效果
+- （1）创建类，实现接口 BeanPostProcessor，创建后置处理器
+```java
 public class MyBeanPost implements BeanPostProcessor {
  @Override
  public Object postProcessBeforeInitialization(Object bean, String beanName)
@@ -426,5 +433,8 @@ throws BeansException {
  return bean;
  }
 }
+```
+```xml
 <!--配置后置处理器-->
 <bean id="myBeanPost" class="com.atguigu.spring5.bean.MyBeanPost"></bean>
+```
