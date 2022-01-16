@@ -200,4 +200,231 @@ public class UserService {
     <property name="dname" value="财务部"></property>
     </bean>
     ```
+- 注入集合属性
+    * 1、注入数组类型属性
+    * 2、注入 List 集合类型属性
+    * 3、注入 Map 集合类型属性
+        + （1）创建类，定义数组、list、map、set 类型属性，生成对应 set 方法
+        ```java
+        public class Stu {
+        //1 数组类型属性
+        private String[] courses;
+        //2 list 集合类型属性
+        private List<String> list;
+        //3 map 集合类型属性
+        private Map<String,String> maps;
+        //4 set 集合类型属性
+        private Set<String> sets;
+        public void setSets(Set<String> sets) {
+        this.sets = sets;
+        }
+        public void setCourses(String[] courses) {
+        this.courses = courses;
+        }
+        public void setList(List<String> list) {
+        this.list = list;
+        }
+        public void setMaps(Map<String, String> maps) {
+        this.maps = maps;
+        }
+        }
+        ```
+        + （2）在 spring 配置文件进行配置
+        ```xml
+        <!--1 集合类型属性注入-->
+        <bean id="stu" class="com.atguigu.spring5.collectiontype.Stu">
+        <!--数组类型属性注入-->
+        <property name="courses">
+        <array>
+        <value>java 课程</value>
+        <value>数据库课程</value>
+        </array>
+        </property>
+        <!--list 类型属性注入-->
+        <property name="list">
+        <list>
+        <value>张三</value>
+        <value>小三</value>
+        </list>
+        </property>
+        <!--map 类型属性注入-->
+        <property name="maps">
+        <map>
+        <entry key="JAVA" value="java"></entry>
+        <entry key="PHP" value="php"></entry>
+        </map>
+        </property>
+        <!--set 类型属性注入-->
+        <property name="sets">
+        <set>
+        <value>MySQL</value>
+        <value>Redis</value>
+        </set>
+        </property>
+        </bean>
+        ```
+    * 4、在集合里面设置对象类型值
+    ```xml
+    <!--创建多个 course 对象-->
+    <bean id="course1" class="com.atguigu.spring5.collectiontype.Course">
+    <property name="cname" value="Spring5 框架"></property>
+    </bean>
+    <bean id="course2" class="com.atguigu.spring5.collectiontype.Course">
+    <property name="cname" value="MyBatis 框架"></property>
+    </bean>
+    <!--注入 list 集合类型，值是对象-->
+    <property name="courseList">
+    <list>
+    <ref bean="course1"></ref>
+    <ref bean="course2"></ref>
+    </list>
+    </property>
+    ```
+    * 5、把集合注入部分提取出来
+        + （1）在 spring 配置文件中引入名称空间 util
+        ```xml
+        <?xml version="1.0" encoding="UTF-8"?>
+        <beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:util="http://www.springframework.org/schema/util"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd">
+        ```
+
+        + （2）使用 util 标签完成 list 集合注入提取
+        ```xml
+        <!--1 提取 list 集合类型属性注入-->
+        <util:list id="bookList">
+        <value>易筋经</value>
+        <value>九阴真经</value>
+        <value>九阳神功</value>
+        </util:list>
+        <!--2 提取 list 集合类型属性注入使用-->
+        <bean id="book" class="com.atguigu.spring5.collectiontype.Book">
+        <property name="list" ref="bookList"></     property>
+        </bean>
+        ```
+
 ### 基于注解方式实现
+
+## FactoryBean
+1. Spring 有两种类型 bean，一种普通 bean，另外一种工厂 bean（FactoryBean）
+2. 普通 bean：在配置文件中定义 bean 类型就是返回类型
+3. 工厂 bean：在配置文件定义 bean 类型可以和返回类型不一样
+    - 第一步 创建类，让这个类作为工厂 bean，实现接口 FactoryBean
+    - 第二步 实现接口里面的方法，在实现的方法中定义返回的 bean 类型
+    `````java
+    public class MyBean implements FactoryBean<Course> {
+    //定义返回 bean
+    @Override
+    public Course getObject() throws Exception {
+    Course course = new Course();
+    course.setCname("abc");
+    return course;
+    }
+    @Override
+    public Class<?> getObjectType() {
+    return null;
+    }
+    @Override
+    public boolean isSingleton() {
+    return false;
+    }
+    }
+    <bean id="myBean" class="com.atguigu.spring5.factorybean.MyBean">
+    </bean>
+    @Test
+    public void test3() {
+    ApplicationContext context =
+    new ClassPathXmlApplicationContext("bean3.xml");
+    Course course = context.getBean("myBean", Course.class);
+    System.out.println(course);
+    }
+    ```
+## Bean作用域
+- 1、在 Spring 里面，设置创建 bean 实例是单实例还是多实例
+- 2、在 Spring 里面，默认情况下，bean 是单实例对象
+- 3、如何设置单实例还是多实例
+    * （1）在 spring 配置文件 bean 标签里面有属性（scope）用于设置单实例还是多实例
+    * （2）scope 属性值
+        + 第一个值 默认值，singleton，表示是单实例对象
+        + 第二个值 prototype，表示是多实例对象
+    * （3）singleton 和 prototype 区别
+        + 第一 singleton 单实例，prototype 多实例
+        + 第二 设置 scope 值是 singleton 时候，加载 spring 配置文件时候就会创建单实例对象
+ 设置 scope 值是 prototype 时候，不是在加载 spring 配置文件时候创建 对象，在调用
+getBean 方法时候创建多实例对象
+
+## bean 生命周期
+1. 生命周期
+- （1）从对象创建到对象销毁的过程
+2. bean 生命周期
+- （1）通过构造器创建 bean 实例（无参数构造）
+- （2）为 bean 的属性设置值和对其他 bean 引用（调用 set 方法）
+- （3）调用 bean 的初始化的方法（需要进行配置初始化的方法）
+- （4）bean 可以使用了（对象获取到了）
+- （5）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
+3. 演示 bean 生命周期
+public class Orders {
+ //无参数构造
+ public Orders() {
+ System.out.println("第一步 执行无参数构造创建 bean 实例");
+ }
+ private String oname;
+ public void setOname(String oname) {
+ this.oname = oname;
+ System.out.println("第二步 调用 set 方法设置属性值");
+ }
+ //创建执行的初始化的方法
+ public void initMethod() {
+ System.out.println("第三步 执行初始化的方法");
+ }
+ //创建执行的销毁的方法
+ public void destroyMethod() {
+ System.out.println("第五步 执行销毁的方法");
+ }
+}
+<bean id="orders" class="com.atguigu.spring5.bean.Orders" initmethod="initMethod" destroy-method="destroyMethod">
+ <property name="oname" value="手机"></property>
+</bean>
+ @Test
+ public void testBean3() {
+// ApplicationContext context =
+// new ClassPathXmlApplicationContext("bean4.xml");
+ ClassPathXmlApplicationContext context =
+ new ClassPathXmlApplicationContext("bean4.xml");
+ Orders orders = context.getBean("orders", Orders.class);
+ System.out.println("第四步 获取创建 bean 实例对象");
+ System.out.println(orders);
+ //手动让 bean 实例销毁
+ context.close();
+ }
+4、bean 的后置处理器，bean 生命周期有七步
+（1）通过构造器创建 bean 实例（无参数构造）
+（2）为 bean 的属性设置值和对其他 bean 引用（调用 set 方法）
+（3）把 bean 实例传递 bean 后置处理器的方法 postProcessBeforeInitialization
+（4）调用 bean 的初始化的方法（需要进行配置初始化的方法）
+（5）把 bean 实例传递 bean 后置处理器的方法 postProcessAfterInitialization
+（6）bean 可以使用了（对象获取到了）
+（7）当容器关闭时候，调用 bean 的销毁的方法（需要进行配置销毁的方法）
+5、演示添加后置处理器效果
+（1）创建类，实现接口 BeanPostProcessor，创建后置处理器
+public class MyBeanPost implements BeanPostProcessor {
+ @Override
+ public Object postProcessBeforeInitialization(Object bean, String beanName)
+throws BeansException {
+ System.out.println("在初始化之前执行的方法");
+ return bean;
+ }
+ @Override
+ public Object postProcessAfterInitialization(Object bean, String beanName)
+throws BeansException {
+ System.out.println("在初始化之后执行的方法");
+ return bean;
+ }
+}
+<!--配置后置处理器-->
+<bean id="myBeanPost" class="com.atguigu.spring5.bean.MyBeanPost"></bean>
