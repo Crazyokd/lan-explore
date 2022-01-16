@@ -9,6 +9,27 @@
     <!-- 开启注解扫描 -->
     <context:component-scan base-package="oct.rekord.spring5"></context:component-scan>
 
+    <!--示例 1
+ use-default-filters="false" 表示现在不使用默认 filter，自己配置 filter
+ context:include-filter ，设置扫描哪些内容
+-->
+<!--    <context:component-scan base-package="oct.rekord.spring5" use-default-filters="false">-->
+<!--        <context:include-filter type="annotation"-->
+
+<!--                                expression="org.springframework.stereotype.Controller"/>-->
+<!--    </context:component-scan>-->
+
+
+    <!--示例 2
+ 下面配置扫描包所有内容
+ context:exclude-filter： 设置哪些内容不进行扫描
+-->
+<!--    <context:component-scan base-package="oct.rekord.spring5">-->
+<!--        <context:exclude-filter type="annotation"-->
+
+<!--                                expression="org.springframework.stereotype.Controller"/>-->
+<!--    </context:component-scan>-->
+
     <!-- 开启Aspect生成代理对象-->
-    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+<!--    <aop:aspectj-autoproxy></aop:aspectj-autoproxy>-->
 </beans>
