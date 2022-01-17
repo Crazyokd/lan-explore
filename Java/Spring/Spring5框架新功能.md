@@ -35,10 +35,12 @@ ALL -->
 3. Spring5 框架核心容器支持@Nullable 注解
 - （1）@Nullable 注解可以使用在方法上面，属性上面，参数上面，表示方法返回可以为空，属性值可以
 为空，参数值可以为空
-（2）注解用在方法上面，方法返回值可以为空
-（3）注解使用在方法参数里面，方法参数可以为空
-（4）注解使用在属性上面，属性值可以为空
-4、Spring5 核心容器支持函数式风格 GenericApplicationContext
+- （2）注解用在方法上面，方法返回值可以为空
+- （3）注解使用在方法参数里面，方法参数可以为空
+- （4）注解使用在属性上面，属性值可以为空
+4. Spring5 核心容器支持函数式风格 
+```java
+GenericApplicationContext
 //函数式风格创建对象，交给 spring 进行管理
 @Test
 public void testGenericApplicationContext() {
@@ -52,10 +54,12 @@ public void testGenericApplicationContext() {
  User user = (User)context.getBean("user1");
  System.out.println(user);
 }
-5、Spring5 支持整合 JUnit5
-（1）整合 JUnit4
-第一步 引入 Spring 相关针对测试依赖
-第二步 创建测试类，使用注解方式完成
+```
+5. Spring5 支持整合 JUnit5
+- （1）整合 JUnit4
+    * 第一步 引入 Spring 相关针对测试依赖
+    * 第二步 创建测试类，使用注解方式完成
+```java
 @RunWith(SpringJUnit4ClassRunner.class) //单元测试框架
 @ContextConfiguration("classpath:bean1.xml") //加载配置文件
 public class JTest4 {
@@ -66,6 +70,7 @@ public class JTest4 {
  userService.accountMoney();
  }
 }
+```
 - （2）Spring5 整合 JUnit5
     * 第一步 引入 JUnit5 的 jar 包
     * 第二步 创建测试类，使用注解完成
