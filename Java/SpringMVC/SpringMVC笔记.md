@@ -420,7 +420,7 @@ public String testRequestMapping(){
 
 ### 7、SpringMVC支持ant风格的路径
 
-？：表示任意的单个字符
+？：表示任意的单个字符(不能为空)
 
 *：表示任意的0个或多个字符
 
