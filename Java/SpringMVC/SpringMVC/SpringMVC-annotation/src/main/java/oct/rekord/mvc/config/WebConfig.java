@@ -35,7 +35,7 @@ import java.util.Properties;
 //将当前类标识为一个配置类
 @Configuration
 //1、扫描组件
-@ComponentScan("com.atguigu.mvc.controller")
+@ComponentScan("oct.rekord.mvc.controller")
 //5、mvc注解驱动
 @EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
