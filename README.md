@@ -67,9 +67,12 @@ LeetCode刷题题解
 ### Batch
 有关Batch的学习已单独迁移至[Crazyokd/learn-batch](https://github.com/Crazyokd/learn-batch)仓库。
 
+### Shell
+有关Shell的学习已单独迁移至[Crazyokd/learn-shell](https://github.com/Crazyokd/learn-shell)仓库。
+
 ## Waiting to learn
 
 - [x] JavaScript
-- [ ] Shell
+- [x] Shell
 - [x] C#
 - [x] Batch
