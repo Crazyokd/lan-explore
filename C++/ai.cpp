@@ -1,11 +1,12 @@
 #include<iostream>
 #include<vector>
+#include<algorithm>
 
 using namespace std;
 
 int af=5, bf=4;
 int target = 2;
-int maxDepth = 20;
+int maxDepth = 12;
 
 struct node {
     int a;
@@ -86,11 +87,47 @@ void aiDFS(vector<node> cur, vector<vector<node>>& res, int depth){
     }
 }
 
+int cmp(vector<node> node1, vector<node> node2) {
+    return node1.size() < node2.size();
+}
+
+bool exclude(vector<vector<node>> &res, int index1, int index2) {
+    int start1 = 1;
+    int start2 = res[index2].size() - res[index1].size() + 1;
+    while(start1 < res[index1].size()) {
+        if (res[index1][start1].a != res[index2][start2].a || res[index1][start1].b != res[index2][start2].b) {
+            return false;
+        }
+        start1++;
+        start2++;
+    }
+    return true;
+}
+
+
+// 对结果进行进一步处理
+void handle(vector<vector<node>> &res) {
+    // 按结果长度排序
+    sort(res.begin(), res.end(), cmp);
+
+    for (int i = 0; i < res.size(); i++) {
+        for (int j = i+1; j < res.size(); j++) {
+            if (exclude(res, i, j)) {
+                res.erase(res.begin() + j);
+                j--;
+            }
+        }
+    }
+}
+
 int main(){
     vector<node> cur;
     cur.push_back(node(0, 0));
     vector<vector<node>> res;
+    // 得到预结果
     aiDFS(cur, res, 0);
+    // 对预结果进行进一步处理
+    handle(res);
 
     // 输出结果
     for (int i = 0; i < res.size(); i++) {
