@@ -41,6 +41,12 @@ Java的部分课程作业，后续可能会有其他一些Java写的小东西。
 ### Shell
 有关Shell的学习已单独迁移至[Crazyokd/learn-shell](https://github.com/Crazyokd/learn-shell)仓库。
 
+### C
+目前存有操作系统的四次实验作业。
+
+### C++
+一些用C++编写的小玩意。
+
 ## Waiting to learn
 
 - [x] JavaScript
