@@ -16,12 +16,12 @@ fork : fork.o
 fork.o : fork.c
 	cc -c fork.c
 
-forkshare_1 : forkshare_1
+forkshare_1 : forkshare_1.o
 	cc -o forkshare_1 forkshare_1.o
 forkshare_1.o : forkshare_1.c
 	cc -c forkshare_1.c
 
-forkshare_2 : forkshare_2
+forkshare_2 : forkshare_2.o
 	cc -o forkshare_2 forkshare_2.o
 forkshare_2.o : forkshare_2.c
 	cc -c forkshare_2.c
