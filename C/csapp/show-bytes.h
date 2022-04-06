@@ -14,4 +14,8 @@ void show_int(int x);
 void show_float(float x);
 
 void show_pointer(void *x);
+
+int fun1(unsigned word);
+int fun2(unsigned word);
+
 #endif

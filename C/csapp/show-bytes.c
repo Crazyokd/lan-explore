@@ -21,4 +21,11 @@ void show_float(float x) {
 void show_pointer(void *x) {
     show_bytes((byte_pointer) &x, sizeof(void *)); //line:data:show_bytes_amp3
 }
+
+int fun1(unsigned word) {
+    return (int) ((word << 24) >> 24);
+}
+int fun2(unsigned word) {
+    return ((int) word << 24) >> 24;
+}
 /* $end show-bytes */
