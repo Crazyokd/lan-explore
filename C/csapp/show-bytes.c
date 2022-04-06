@@ -33,4 +33,12 @@ int add_ok(unsigned x, unsigned y) {
     unsigned sum = x + y;
     return sum >= x;
 }
+
+int tadd_ok(int x, int y) {
+    return !((x > 0 && y > 0 && x + y < 0) || (x < 0 && y < 0 && x + y > 0));
+}
+
+int tsub_ok(int x, int y) {
+    return y != 0x80000000 && tadd_ok(x, -y);
+}
 /* $end show-bytes */

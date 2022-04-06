@@ -21,4 +21,9 @@ int fun2(unsigned word);
 /* Determine whether arguments can be added without overflow */
 int add_ok(unsigned x, unsigned y);
 
+/* Determine whether arguments can be added without overflow */
+int tadd_ok(int x, int y);
+
+/* Determine whether arguments can be subtracted without overflow */
+int tsub_ok(int x, int y);
 #endif
