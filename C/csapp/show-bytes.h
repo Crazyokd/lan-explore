@@ -18,4 +18,7 @@ void show_pointer(void *x);
 int fun1(unsigned word);
 int fun2(unsigned word);
 
+/* Determine whether arguments can be added without overflow */
+int add_ok(unsigned x, unsigned y);
+
 #endif

@@ -28,4 +28,9 @@ int fun1(unsigned word) {
 int fun2(unsigned word) {
     return ((int) word << 24) >> 24;
 }
+
+int add_ok(unsigned x, unsigned y) {
+    unsigned sum = x + y;
+    return sum >= x;
+}
 /* $end show-bytes */
