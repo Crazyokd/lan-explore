@@ -41,4 +41,11 @@ int tadd_ok(int x, int y) {
 int tsub_ok(int x, int y) {
     return y != 0x80000000 && tadd_ok(x, -y);
 }
+
+//2.42
+int div16(int x) {
+    // 如果x为负数，需要加上15
+    int bias = (x >> 31) & 0xF;
+    return (x + bias) >> 4;
+}
 /* $end show-bytes */

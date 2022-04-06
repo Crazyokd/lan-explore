@@ -26,4 +26,7 @@ int tadd_ok(int x, int y);
 
 /* Determine whether arguments can be subtracted without overflow */
 int tsub_ok(int x, int y);
+
+int div16(int x);
+
 #endif
