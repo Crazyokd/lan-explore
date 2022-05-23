@@ -1,0 +1,92 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="reminderbody">
+    <div class="title"><h4>互动提醒</h4></div>
+    <div class="reminderwrap">
+    <ul id="reminder">
+        
+        <li><a href="###" title="点击查看"><span>1</span>门课程有未读课程通知</a>
+            <ul>
+                
+                <li>
+                    <a href="###" onclick="window.open('./lesson/enter_course.jsp?lid=42953&t=info','manage_course')">
+                        软件工程经济学</a></li>
+                
+            </ul>
+        </li>
+        
+        
+        <li><a href="###" title="点击查看"><span>2</span>门课程有待提交作业</a>
+            <ul>
+                
+                <li>
+                    <a href="###" onclick="window.open('./lesson/enter_course.jsp?lid=55232&t=hw','manage_course')">
+                        软件项目管理及案例
+                </a></li>
+                
+                <li>
+                    <a href="###" onclick="window.open('./lesson/enter_course.jsp?lid=48164&t=hw','manage_course')">
+                        人工智能概论
+                </a></li>
+                
+            </ul>
+        </li>
+        
+        
+        
+
+        
+
+        
+        
+        
+        
+    </ul>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function(){
+        if($("#mailcount").length>0){
+            $(".userinfobody .mail").css({'display':'block'});
+            var ma = $('#mailcount a');
+            $('.userinfobody .mail a').click(function(){
+                parent.changeUrl('./common/mail/inputbox.jsp')
+            }).css({'cursor':'pointer'});
+        }
+        $(".systemreminder a").each(function (i) {
+            $(this).click(function(e) {
+                if ($(this).attr("target") == "_blank") {
+
+                } else {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    $(".content_inner").hide();
+                    $(".main").fadeIn(400);
+                    $("#main").attr("src", $(this).attr("href"));
+                }
+            });
+        });
+    })
+</script>

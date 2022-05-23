@@ -1,0 +1,766 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <Meta name="Description" Content="清华教育在线系列软件">
+    
+
+
+
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+
+<Meta http-equiv="Content-Type" Content="text/html; Charset=gbk">
+<Meta http-equiv="Content-Language" Content="zh-CN">
+<Meta name="Description" Content="THEOL系列软件">
+<Meta name="keywords" Content="网络教学综合平台,THEOL系列软件">
+<Meta name="Author" Content="Educational Technology Institute, Tsinghua University">
+<Meta name="Copyright" Content="Copyright(C)2005 Educational Technology Institute, Tsinghua University">
+
+<link href="/meol/styles/main/css/module_style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="/meol/styles/main/js/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="/meol/styles/default/js/function.js"></script>
+<script type="text/javascript" src="/meol/styles/main/js/common.js"></script>
+<script type="text/javascript" src="/meol/styles/default/js/json2.js"></script>
+<link rel="stylesheet" type="text/css" href="/meol/styles/main/js/fancyBox/source/jquery.fancybox.css">
+<script type="text/javascript" src="/meol/styles/main/js/fancyBox/source/jquery.fancybox.js"></script>
+<link rel="stylesheet" href="/meol/styles/newstyle/plugins/jquery-ui/jquery-ui.min.css">
+<link rel="stylesheet" href="/meol/styles/newstyle/plugins/jquery-ui/ui-custom.css">
+<script type="text/javascript" src="/meol/styles/newstyle/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/meol/styles/newstyle/plugins/jquery-ui/extends/u-mooc.extends.js"></script>
+<script type="text/javascript">
+    //配置弹出层
+    $().ready(function () {
+        //固定大小的弹出层
+        if($("a[name='fancybox']").length>0){
+            $("a[name='fancybox']").fancybox({
+                'width': '80%',
+                'height': '95%',
+                'autoScale': false,
+                'autoSize'   : false,
+                'transitionIn': 'none',
+                'transitionOut': 'none',
+                'type': 'iframe'
+            });
+        }
+
+        //弹出层大小自适应
+        if($("a[name='fancyboxAuto']").length>0){
+            $("a[name='fancyboxAuto']").fancybox({
+                'autoScale': false,
+                'autoSize'   : true,
+                'transitionIn': 'none',
+                'transitionOut': 'none',
+                'type': 'iframe'
+            });
+        }
+
+        //弹出层关闭时，父页面刷新
+        if($("a[name='fancyboxClose']").length>0){
+            $("a[name='fancyboxClose']").fancybox({
+                'autoScale': false,
+                'autoSize'   : true,
+                'transitionIn': 'none',
+                'transitionOut': 'none',
+                'type': 'iframe',
+                'afterClose':function(){
+                    window.location.reload();
+                }
+            });
+        }
+    })
+</script>
+
+    <title>网络教学综合平台</title>
+    <script type="text/javascript">
+        function s_search_go(param, value)
+        {
+            url = "index_stu.jsp?lid=0&" + param + "=" + value;
+            document.location.href = url;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="title">
+               <h1><span>通知公告</span></h1>
+        </div>
+<table cellpadding="0" cellspacing="0" class="valuelist">
+    <tr>
+        <th width="55%"><a href="index_stu.jsp?lid=0&s_order=subject">通知标题</a></th>
+        <th width="30%"><a href="index_stu.jsp?lid=0&s_order=pubdate">发布时间</a></th>
+        <th width="15%"><a href="index_stu.jsp?lid=0&s_order=pubusername">发布人</a></th>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <img src="../../styles/main/image/state_d_ico.gif" border="0"
+                 alt="置顶">
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2046676"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="2022湖南省高校教师信息化教学竞赛备赛提醒"
+                    onClick="location.reload(); ">
+                2022湖南省高校教师信息化教学竞赛备赛提醒
+            </a></td>
+        <td class="align_c">2021-04-02 16:26:06
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2299975"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="国家智慧教育公共服务平台上线"
+                    onClick="location.reload(); ">
+                国家智慧教育公共服务平台上线
+            </a></td>
+        <td class="align_c">2022-03-29 14:43:22
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2282063"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="平台使用培训在线直播预告"
+                    onClick="location.reload(); ">
+                平台使用培训在线直播预告
+            </a></td>
+        <td class="align_c">2022-03-08 09:43:07
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2255188"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="新学期课程导入完毕"
+                    onClick="location.reload(); ">
+                新学期课程导入完毕
+            </a></td>
+        <td class="align_c">2022-01-29 12:35:47
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2254531"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="关于网络教学平台密码重置的通知"
+                    onClick="location.reload(); ">
+                关于网络教学平台密码重置的通知
+            </a></td>
+        <td class="align_c">2022-01-18 14:44:08
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2250186"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="关于网络教学平台弱口令用户登录方法的通知"
+                    onClick="location.reload(); ">
+                关于网络教学平台弱口令用户登录方法的通知
+            </a></td>
+        <td class="align_c">2022-01-07 17:35:49
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2157138"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="10月12日中午平台停止服务通知"
+                    onClick="location.reload(); ">
+                10月12日中午平台停止服务通知
+            </a></td>
+        <td class="align_c">2021-10-12 09:40:16
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2120236"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="新版本网络教学平台使用帮助"
+                    onClick="location.reload(); ">
+                新版本网络教学平台使用帮助
+            </a></td>
+        <td class="align_c">2021-09-03 11:19:01
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2119590"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="平台升级维护通知"
+                    onClick="location.reload(); ">
+                平台升级维护通知
+            </a></td>
+        <td class="align_c">2021-08-10 17:11:50
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=2117704"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="零点后无法访问平台"
+                    onClick="location.reload(); ">
+                零点后无法访问平台
+            </a></td>
+        <td class="align_c">2021-07-05 15:44:35
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1746556"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="关于停课不停学期间暂停在线测试功能的通知"
+                    onClick="location.reload(); ">
+                关于停课不停学期间暂停在线测试功能的通知
+            </a></td>
+        <td class="align_c">2020-04-08 10:07:20
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1439666"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="超星mooc平台使用指南"
+                    onClick="location.reload(); ">
+                超星mooc平台使用指南
+            </a></td>
+        <td class="align_c">2020-02-10 18:42:17
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1439379"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="在疫情期间推荐在线教学技能培训资源汇总"
+                    onClick="location.reload(); ">
+                在疫情期间推荐在线教学技能培训资源汇总
+            </a></td>
+        <td class="align_c">2020-02-10 10:09:09
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1439374"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="教育部：面向全国高校#2.4万余门在线课程免费开放#"
+                    onClick="location.reload(); ">
+                教育部：面向全国高校#2.4万余门在线课程免费开放...
+            </a></td>
+        <td class="align_c">2020-02-10 10:01:15
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1439369"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="停课不停学信息发布页面"
+                    onClick="location.reload(); ">
+                停课不停学信息发布页面
+            </a></td>
+        <td class="align_c">2020-02-10 09:45:52
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1427451"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="网络教学平台停服维护通知"
+                    onClick="location.reload(); ">
+                网络教学平台停服维护通知
+            </a></td>
+        <td class="align_c">2019-12-20 11:33:03
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1215694"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="关于网络教学平台弱口令清理的通知"
+                    onClick="location.reload(); ">
+                关于网络教学平台弱口令清理的通知
+            </a></td>
+        <td class="align_c">2018-11-26 17:17:10
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1209283"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="网络教学平台回档通知"
+                    onClick="location.reload(); ">
+                网络教学平台回档通知
+            </a></td>
+        <td class="align_c">2018-11-19 09:59:39
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1109709"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="平台假期维护通知"
+                    onClick="location.reload(); ">
+                平台假期维护通知
+            </a></td>
+        <td class="align_c">2018-01-15 12:34:40
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1057751"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="平台暑期维护通知"
+                    onClick="location.reload(); ">
+                平台暑期维护通知
+            </a></td>
+        <td class="align_c">2017-07-14 16:00:20
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=1004141"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="平台假期维护通知"
+                    onClick="location.reload(); ">
+                平台假期维护通知
+            </a></td>
+        <td class="align_c">2017-01-16 15:27:32
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=967629"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="通  知"
+                    onClick="location.reload(); ">
+                通  知
+            </a></td>
+        <td class="align_c">2016-10-24 11:26:50
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=965164"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="关于网络教学平台停服的通知"
+                    onClick="location.reload(); ">
+                关于网络教学平台停服的通知
+            </a></td>
+        <td class="align_c">2016-10-12 15:05:50
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=960716"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="如何正常收看《凤凰卫视》等内部自转电视节目"
+                    onClick="location.reload(); ">
+                如何正常收看《凤凰卫视》等内部自转电视节目
+            </a></td>
+        <td class="align_c">2016-09-27 09:42:46
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=952516"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="2016年平台暑假停机维护通知"
+                    onClick="location.reload(); ">
+                2016年平台暑假停机维护通知
+            </a></td>
+        <td class="align_c">2016-07-09 17:34:09
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=899071"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="平台假期停机维护通知"
+                    onClick="location.reload(); ">
+                平台假期停机维护通知
+            </a></td>
+        <td class="align_c">2016-01-14 15:32:19
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=891602"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="2015年湖南省普通高校教师信息化教学竞赛获奖结果的通报"
+                    onClick="location.reload(); ">
+                2015年湖南省普通高校教师信息化教学竞赛获奖结果...
+            </a></td>
+        <td class="align_c">2015-12-21 09:36:17
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=850721"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="棒喝精英，守护健康--著名中医李鹏讲座视频"
+                    onClick="location.reload(); ">
+                棒喝精英，守护健康--著名中医李鹏讲座视频
+            </a></td>
+        <td class="align_c">2015-10-26 13:46:34
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=830469"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="关于国庆假期间进行校园网核心升级改造施工的公告(转发)"
+                    onClick="location.reload(); ">
+                关于国庆假期间进行校园网核心升级改造施工的公告(转...
+            </a></td>
+        <td class="align_c">2015-09-30 15:49:54
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+    <tr>
+        <td>&nbsp;
+            
+            <a
+                    
+                    href="message_content.jsp?nid=813327"
+                    
+                    class="infolist"
+                    target="_blank"
+                    title="湖南省普通高校信息化教学竞赛录课通知"
+                    onClick="location.reload(); ">
+                湖南省普通高校信息化教学竞赛录课通知
+            </a></td>
+        <td class="align_c">2015-09-02 16:45:38
+        </td>
+        <td class="align_c">系统管理员
+        </td>
+    </tr>
+    
+</table>
+<div class="neck"></div>
+<div class="navigation">
+    <div class="page">
+        共<b>84
+    </b>条记录　
+        <a href="index_stu.jsp?lid=0&s_page=first">[首页]</a>
+        
+        
+        <a href="index_stu.jsp?lid=0&s_gotopage=2">[下一页]</a>
+        
+        <a href="index_stu.jsp?lid=0&s_page=last">[尾页]</a>&nbsp;
+        跳至第<select name="s_gotopage"
+                                                                     onChange="javascript:s_search_go('s_gotopage',this.value)"
+                                                                     class="input">
+        <script language="javascript">
+            line = "";
+            for (i = 1; i <=3; i++)
+            {
+                line += "<option   value=\"" + i + "\""
+                if (i == 1)
+                    line += " selected"
+                line += ">" + i + "</option>"
+            }
+            document.write(line);
+        </script>
+    </select>页
+    </div>
+</div>
+    <div class="infoExp2">
+        <div class="text">
+            <ul>
+                <li>浏览过显示为黑色，未浏览为红色！</li>
+            </ul>
+        </div>
+    </div>
+    <div class="neck"></div>
+        </div>
+</body>
+</html>
