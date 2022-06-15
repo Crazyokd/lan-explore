@@ -55,12 +55,25 @@ void boyi(vector<int>& jingzi_cheese) {
     int size = jingzi_cheese.size();
     int minf = 0x80000000;
     int next_pos = -1;
+    int defeat = -1;
 
     for (int i = 0; i < size; i++) {
         if (jingzi_cheese[i] == -1) {
             // 尝试放置X
             jingzi_cheese[i] = 1;
+            if (cal(jingzi_cheese, 1)) {
+                // 直接胜利
+                return;                
+            }
             int cmp = cal_f(jingzi_cheese, 1) - cal_f(jingzi_cheese, 0);
+            if (cmp == minf) {
+                jingzi_cheese[i] = 0;
+                if (cal(jingzi_cheese, 0)) {
+                    // 不进行拦截将直接失败
+                    defeat = i;
+                }
+                jingzi_cheese[i] = 1;
+            }
             if (cmp > minf) {
                 minf = cmp;
                 next_pos = i;
@@ -69,6 +82,7 @@ void boyi(vector<int>& jingzi_cheese) {
         }
     }
 
+    next_pos = defeat != -1 ? defeat : next_pos;
     jingzi_cheese[next_pos] = 1;
 }
 
