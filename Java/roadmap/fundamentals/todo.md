@@ -1,0 +1,14 @@
+- [ ] Learn the Fundamentals
+	- [x] Basic Syntax
+	- [ ] DataTypes, Variables
+    	- [x] primitive type
+		- [x] Variables
+		- [ ] Enum
+	- [x] Conditionals
+	- [x] Functions
+	- [ ] DataStructures
+	- [x] OOP, Interfaces, Classes
+	- [ ] Packages
+	- [ ] Working with Files and APIs
+    - [x] Loops
+    - [x] Exception Handling
