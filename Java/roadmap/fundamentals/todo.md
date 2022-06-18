@@ -8,7 +8,7 @@
 	- [x] Functions
 	- [ ] DataStructures
 	- [x] OOP, Interfaces, Classes
-	- [ ] Packages
+	- [x] Packages
 	- [ ] Working with Files and APIs
     - [x] Loops
     - [x] Exception Handling
