@@ -41,3 +41,10 @@ XXX 为类名（主类名）
 5. 进入第四步处理后得到的路径（相当于更新为正确的工作路径）
 6. 编译所有 java 文件
 7. 运行 java xxx.xxx.xxx.XXX 
+
+
+学会使用 jar 工具
+学会使用 javadoc 工具
+下面是一个示例（jar 包为 org.apache.commons.io）：
+javadoc -overview .\org\apache\commons\io\overview.html \
+-d docDir org.apache.commons.io.output org.apache.commons.io.input org.apache.commons.io.filefilter org.apache.commons.io.comparator org.apache.commons.io
