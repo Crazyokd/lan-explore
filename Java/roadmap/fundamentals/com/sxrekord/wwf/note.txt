@@ -1,0 +1,10 @@
+四种权限修饰符
+- public 
+- protected
+- [package/friend]
+- private
+
+> 权限从大到小排列
+
+其中 class 仅可使用 缺省 或 public 修饰符
+修饰效果一致。
