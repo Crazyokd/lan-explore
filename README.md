@@ -17,6 +17,7 @@ Java的部分课程作业，后续可能会有其他一些Java写的小东西。
 
 - 开发环境——[IDEA](https://www.jetbrains.com/idea/)、[vsCode](https://code.visualstudio.com/)
 - 语言版本——Java 8、Java 11
+- 参考书籍——[Thinking in Java](https://github.com/xbtlin/thinking-In-Java/)
 
 ### Python
 
@@ -46,10 +47,10 @@ Java的部分课程作业，后续可能会有其他一些Java写的小东西。
 
 ### C++
 一些用C++编写的小玩意。
+[词法分析器](C%2B%2B/word_analyzer.cpp)
+[井字棋游戏](C++/boyi.cpp)
+[启发式搜索八数码](C++/qifashi_search.cpp)
 
 ## Waiting to learn
-
-- [x] JavaScript
-- [x] Shell
-- [x] C#
-- [x] Batch
+- [ ] Kotlin
+- [ ] Dart
