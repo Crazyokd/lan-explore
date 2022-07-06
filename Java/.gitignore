@@ -1,10 +1,19 @@
 # push.bat
 push.bat
 
-# bin
-bin/
-
+# reference
 corejava11/
 thinking-In-Java/
+Java-master
 
+# output
 out/
+bin/
+
+# eclipse
+.classpath
+.project
+.settings/
+
+# idea
+*.iml
