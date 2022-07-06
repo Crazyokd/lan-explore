@@ -1,0 +1,24 @@
+- [ ] Learn the Fundamentals
+    - [x] Basic Syntax
+    - [ ] DataTypes, Variables
+        - [x] primitive type
+        - [x] Variables
+        - [ ] Enum
+    - [x] Conditionals
+    - [x] Functions
+    - [ ] DataStructures
+    - [x] OOP, Interfaces, Classes
+    - [x] Packages
+    - [x] Working with Files and APIs
+    - [x] Loops
+    - [x] Exception Handling
+- [ ] Getting Deeper
+	- [ ] Memory Management
+	- [ ] Collection Framework
+	- [ ] Serialization
+	- [ ] Networking & Sockets
+	- [x] Generics
+	- [ ] Streams
+	- [ ] How JVM works?
+	- [ ] Garbage Collection
+	- [ ] Basics of Threads
