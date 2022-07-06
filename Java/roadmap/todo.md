@@ -15,7 +15,7 @@
 - [ ] Getting Deeper
 	- [ ] Memory Management
 	- [ ] Collection Framework
-	- [ ] Serialization
+	- [x] Serialization
 	- [ ] Networking & Sockets
 	- [x] Generics
 	- [ ] Streams
