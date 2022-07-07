@@ -19,7 +19,7 @@
     - [ ] Networking & Sockets
     - [x] Generics
     - [ ] Streams
-    - [ ] Annotation
+    - [x] [Annotation](https://sxrekord.com/java_annotation/)
     - [ ] How JVM works?
     - [ ] Garbage Collection
     - [x] Basics of Threads
