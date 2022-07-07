@@ -13,12 +13,13 @@
     - [x] Loops
     - [x] Exception Handling
 - [ ] Getting Deeper
-	- [ ] Memory Management
-	- [ ] Collection Framework
-	- [x] Serialization
-	- [ ] Networking & Sockets
-	- [x] Generics
-	- [ ] Streams
-	- [ ] How JVM works?
-	- [ ] Garbage Collection
-	- [ ] Basics of Threads
+    - [ ] Memory Management
+    - [ ] Collection Framework
+    - [x] Serialization
+    - [ ] Networking & Sockets
+    - [x] Generics
+    - [ ] Streams
+    - [ ] Annotation
+    - [ ] How JVM works?
+    - [ ] Garbage Collection
+    - [x] Basics of Threads

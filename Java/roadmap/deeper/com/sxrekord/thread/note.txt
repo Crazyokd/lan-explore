@@ -1,0 +1,2 @@
+synchronized
+同步方法锁对象为this
