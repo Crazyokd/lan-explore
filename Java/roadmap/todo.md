@@ -14,7 +14,7 @@
     - [x] Exception Handling
 - [ ] Getting Deeper
     - [ ] Memory Management
-    - [ ] Collection Framework
+    - [x] Collection Framework
     - [x] Serialization
     - [ ] Networking & Sockets
     - [x] Generics
