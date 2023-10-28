@@ -5,6 +5,8 @@
 #include <string.h>
 #include <stdio.h>
 
+#include "common.h"
+
 // Floyd
 void floyd(int n, int* arr[]) {
     for (int k = 0; k < n; k++) {
@@ -60,12 +62,6 @@ int dijkstra(int start_point, int end_point, int n, int* arr[]) {
 
 
 // Bellman-Ford
-struct Edge {
-    int from;
-    int to;
-    int weight;
-};
-
 int bellman_ford(int start_point, int end_point, int n/* node number */, int m/* edge number */, Edge *edges) {
     // 初始化距离数组
     int *distance = (int*)malloc(n * sizeof(int));
