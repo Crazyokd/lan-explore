@@ -1,0 +1,18 @@
+some_file: other_file
+	@echo "This will always run, and runs second"
+	touch some_file
+
+other_file:
+	@echo "This will always run, and runs first"
+
+clean:
+	rm -f some_file
+
+all: f1.o f2.o
+
+f1.o f2.o:
+	@echo $@
+
+print: $(wildcard *.c)
+	ls -la  $?
+	

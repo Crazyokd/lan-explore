@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.cpp": "cpp",
+        "Makefile*": "makefile",
         "cctype": "cpp",
         "clocale": "cpp",
         "cmath": "cpp",
