@@ -13,6 +13,12 @@ function createClass(...)
 	setmetatable(c, {__index = function(t, k)
 		return search(k, parents)
 	end})
+	-- 相比上面这种方式性能更好
+	setmetatable(c, {__index = function(t, k)
+		local v = search(k, parents)
+		t[k] = v -- 保存下来用于下次访问
+		return v
+	end})
 
 	c.__index = c
 

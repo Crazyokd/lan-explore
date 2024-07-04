@@ -1,3 +1,11 @@
+local key = {}
+local mt = {__index = function (t) return t[key] end}
+function setDefault (t, d)
+	t[key] = d -- 表也可以作为键，而且每一个表都是新对象，所以外部无法引用这个键
+	setmetatable(t, mt)
+end
+
+
 function track(t)
 	local proxy = {}
 

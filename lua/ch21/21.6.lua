@@ -1,3 +1,4 @@
+-- 对偶表示
 local balance = {}
 
 -- local self = {}
