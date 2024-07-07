@@ -14,5 +14,17 @@ end}
 setmetatable(t, t)
 _G["*AA*"] = t
 
+do
+	local mt = {__gc = function (o)
+		print("new cycle")
+		setmetatable({}, getmetatable(o))
+	end}
+
+	setmetatable({}, mt)
+end
+
+collectgarbage()
+collectgarbage()
+collectgarbage()
 
 
