@@ -6,8 +6,16 @@
 ; 1
 (define (abs n)
 	(* n
-		 (if (positive? n) 1 -1)))
+	   (if (positive? n) 1 -1)))
 
+(define (abs n)
+    (cond ((> x 0) x)
+          ((= x 0) 0)
+          ((< x 0) (- x))))
+
+(define (abs n)
+    (cond ((< x 0) (- x))
+          (else x)))
 ; 2
 (define (inv n)
 	(if (not (zero? n))
