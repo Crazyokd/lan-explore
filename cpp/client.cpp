@@ -5,6 +5,17 @@
 #include <cstring>
 #include <cmath>
 #include <getopt.h>
+#include <csignal>
+#include <random>
+
+static int server_fd = -1;
+void signal_handler(int signum) {
+    if (server_fd != -1) {
+        close(server_fd);
+        std::cout << "Server socket closed due to signal " << signum << std::endl;
+    }
+    exit(signum);
+}
 
 void handle_client(int client_fd)
 {
@@ -41,6 +52,7 @@ void listen_on_port(const char *ip, int port) {
     if (bind(server_fd, (struct sockaddr *)&address, sizeof(address)) < 0) {
         std::cerr << "Bind failed" << std::endl;
         close(server_fd);
+        exit(1);
         return;
     }
 
@@ -71,6 +83,20 @@ void listen_on_port(const char *ip, int port) {
     close(server_fd);
 }
 
+// 处理发送数据的线程函数
+void send_data(int client_socket) {
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(1, 5); // 随机等待1到5秒
+
+    while (true) {
+        send(client_socket, message.c_str(), message.size(), 0);
+
+        // 随机等待一段时间
+        std::this_thread::sleep_for(std::chrono::seconds(dis(gen)));
+    }
+}
+
 int connect_to_port(const char* ip, int port) {
     int client_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (client_fd == -1) {
@@ -97,6 +123,7 @@ int connect_to_port(const char* ip, int port) {
     std::cout << "Connected to " << ip << " on port " << port << std::endl;
 
     // 进入循环，持续接收并打印数据
+    std::thread send_thread(send_data, client_fd);
     char buffer[1024];
     while (true) {
         memset(buffer, 0, sizeof(buffer));

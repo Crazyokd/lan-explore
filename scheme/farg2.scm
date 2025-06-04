@@ -1,4 +1,5 @@
 ; hello with name
+; hello is function name, and the follows are arguments
 (define (hello name)
 	(string-append "Hello " name "!"))
 

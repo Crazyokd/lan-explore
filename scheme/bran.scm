@@ -16,6 +16,11 @@
 (define (abs n)
     (cond ((< x 0) (- x))
           (else x)))
+
+(define (abs n)
+    (if (< x 0)
+        (- x)
+        x))
 ; 2
 (define (inv n)
 	(if (not (zero? n))
